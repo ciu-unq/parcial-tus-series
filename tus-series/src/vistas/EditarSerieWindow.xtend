@@ -13,7 +13,7 @@ class EditarSerieWindow extends CrearSerieWindow{
 	}
 	
 	override protected crearPanelPrincipal(Panel panel) {
-		super.createFormPanel(panel)
+		super.crearPanelPrincipal(panel)
 		crearLabelConTextbox(panel, "Vistas", "vistas", true)
 	}
 	
