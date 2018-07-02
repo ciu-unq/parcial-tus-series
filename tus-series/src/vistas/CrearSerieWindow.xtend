@@ -1,7 +1,7 @@
 package vistas
 
 import dominio.Serie
-import org.uqbar.arena.aop.windows.TransactionalWindow
+import org.uqbar.arena.aop.windows.TransactionalDialog
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
@@ -12,7 +12,7 @@ import org.uqbar.arena.windows.WindowOwner
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 
-class CrearSerieWindow extends TransactionalWindow<Serie>{
+class CrearSerieWindow extends TransactionalDialog<Serie>{
 	protected String aceptarLabel
 	
 	new(WindowOwner parent, Serie serie) {

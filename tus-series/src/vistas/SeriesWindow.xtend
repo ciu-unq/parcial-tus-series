@@ -105,6 +105,7 @@ class SeriesWindow extends SimpleWindow<SeriesAppModel> {
 
 	def editarSerie() {
 		new EditarSerieWindow(this, modelObject.serieSeleccionada) => [
+			onAccept[this.modelObject.editarSerie]
 			open
 		]
 	}

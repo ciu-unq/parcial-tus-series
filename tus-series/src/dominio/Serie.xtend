@@ -12,10 +12,14 @@ class Serie {
 	Integer vistas = 0
 	
 	def aumentarVistas() {
+		if (vistas == temporadas)
+			throw new UserException("La cantidad vista no puede superar a las temporadas")
 		setVistas(vistas + 1)
 	}
 	
 	def disminuirVistas() {
+		if (vistas == 0)
+			throw new UserException("La cantidad vista no puede ser negativo")
 		setVistas(vistas - 1)
 	}
 	
@@ -23,17 +27,12 @@ class Serie {
 		100 * vistas / temporadas
 	}
 	
-	def void setTemporadas(Integer cant) {
-		if (cant <= 0 ) throw new UserException("Debe tener alguna temporada")
-
-		temporadas = cant
-		setVistas(vistas) //Re-settear para checkear validaciones 
-	}
-	
-	def void setVistas(Integer cant) {
-		if (cant < 0 ) throw new UserException("La cantidad vista no puede ser negativa")
-		if (cant > temporadas ) throw new UserException("No puede tener más vistas que el total de temporadas")
-
-		vistas = cant
+	def void validar() {
+		if (nombre === null || nombre.empty)
+			throw new UserException("Debe tener un nombre")
+		if (temporadas === null || temporadas <= 0 ) 
+			throw new UserException("Debe tener alguna temporada")
+		if (vistas === null || vistas < 0 || vistas > temporadas)
+			throw new UserException("La cantidad vista debe ser un número entre cero y la cantidad de temporadas")
 	}
 }
